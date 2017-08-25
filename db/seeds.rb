@@ -1,6 +1,8 @@
 require_relative( '../models/artist.rb')
 require( 'pry-byebug' )
 
+Artists.delete_all()
+
 artist1 = Artist.new({"name" => "The Foals"})
 artist2 = Artist.new({"name" => "Foo Fighters"})
 artist3 = Artist.new({"name" => "Kasabian"})
