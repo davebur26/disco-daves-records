@@ -6,7 +6,7 @@ require_relative( '../models/artist.rb' )
 # INDEX
 get '/albums' do
   @albums = Album.all()
-  @artists = Artist.all
+  @artists = Artist.all()
   erb( :"albums/index")
 end
 
@@ -36,4 +36,17 @@ post '/albums/:id/delete' do
   album = Album.find(params[:id])
   album.delete()
   redirect to ("/albums")
+end
+
+# EDIT
+get '/albums/:id/edit' do
+  @album = Album.find( params[:id] )
+  @artists = Artist.all()
+  erb( :"albums/edit" )
+end
+
+# UPDATE
+post '/albums/:id' do
+  Album.new( params ).update
+  redirect to '/albums'
 end

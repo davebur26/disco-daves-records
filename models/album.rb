@@ -12,7 +12,6 @@ class Album
     @artist_id = details['artist_id']
     @quantity = details['quantity']
     @artist_name = Artist.find(artist_id).name
-
   end
 
   def save()
@@ -53,13 +52,9 @@ class Album
   end
 
   def update()
-    sql = "UPDATE albums SET (title = $1, artist_id = $2, quantity = $3 WHERE id = $4"
+    sql = "UPDATE albums SET (title, artist_id, quantity) = ($1,$2,$3) WHERE id = $4"
     values = [@title, @artist_id, @quantity, @id]
     SqlRunner.run( sql, values )
-  end
-
-  def artist()
-
   end
 
 end
