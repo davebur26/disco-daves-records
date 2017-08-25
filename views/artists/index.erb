@@ -2,7 +2,7 @@
 
 <% for artist in @artists %>
   <p><%= artist.name %></p>
-  <form method="post" action="/artists/<%= artist.id %>/edit">
+  <form method="get" action="/artists/<%= artist.id %>/edit">
     <input type="submit" value="Edit Artist"/>
   </form>
   <form method="post" action="/artists/<%= artist.id %>/delete">
