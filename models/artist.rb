@@ -42,7 +42,7 @@ class Artist
   def self.delete_all()
     sql = "DELETE FROM artists;"
     values = []
-    SqlRunner.ru(sql, values)
+    SqlRunner.run(sql, values)
   end
 
   def update()
