@@ -22,7 +22,21 @@ class Artist
     sql = "SELECT * FROM artists"
     values = []
     results = SqlRunner.run( sql, values )
-    return results.map{ |artist| Artist.new() }
+    return results.map{ |artist| Artist.new(artist) }
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [id]
+    artist = SqlRunner.run(sql,values)
+    result = Artist.new(artist[0])
+    return result
+  end
+
+  def delete()
+    sql = "DELETE FROM artists WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql,values)
   end
 
 
