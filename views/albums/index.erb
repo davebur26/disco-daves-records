@@ -2,8 +2,12 @@
 
 <% for album in @albums %>
   <p>Album Title: <%= album.title %></p>
-  <p>Artist ID: <%= album.artist_id %></p>
+  <p>Artist Name:  <%= album.artist_name %></p>
   <p>Quanity: <%= album.quantity %></p>
+
+  <form method="get" action="/albums/<%= album.id %>">
+    <input type="submit" value="View Album"/>
+  </form>
 
   <form method="get" action="/albums/<%= album.id %>/edit">
     <input type="submit" value="Edit Album"/>
@@ -12,6 +16,4 @@
   <form method="post" action="/albums/<%= album.id %>/delete">
     <input type="submit" value="Delete Album"/>
   </form>
-
-
   <%end%>
