@@ -1,14 +1,15 @@
 <h1>Albums</h1>
 
 <% for album in @albums %>
-  <p><%= album.title %></p>
-  <p><%= album.artist_id %></p>
-  <p><%= album.quantity %></p>
+  <p>Album Title: <%= album.title %></p>
+  <p>Artist ID: <%= album.artist_id %></p>
+  <p>Quanity: <%= album.quantity %></p>
 
   <form method="get" action="/albums/<%= album.id %>/edit">
     <input type="submit" value="Edit Album"/>
   </form>
-  <form method="post" action="/artists/<%= album.id %>/delete">
+
+  <form method="post" action="/albums/<%= album.id %>/delete">
     <input type="submit" value="Delete Album"/>
   </form>
 
