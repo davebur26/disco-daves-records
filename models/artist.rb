@@ -2,18 +2,19 @@ require_relative( '../db/sql_runner' )
 
 class Artist
 
-  attr_accessor( :name)
+  attr_accessor( :name, :url)
   attr_reader ( :id )
 
 
   def initialize( details )
     @id = details['id'].to_i if details['id']
     @name = details['name']
+    @url = details['url']
   end
 
   def save()
-    sql = "INSERT INTO artists(name) VALUES ($1) RETURNING id"
-    values = [@name]
+    sql = "INSERT INTO artists(name, url) VALUES ($1,$2) RETURNING id"
+    values = [@name, @url]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -46,8 +47,8 @@ class Artist
   end
 
   def update()
-    sql = "UPDATE artists SET name = $1 WHERE id = $2"
-    values = [@name, @id]
+    sql = "UPDATE artists SET (name, url) = ($1, $2) WHERE id = $3"
+    values = [@name, @url, @id]
     SqlRunner.run( sql, values )
   end
 
