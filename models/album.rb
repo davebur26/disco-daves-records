@@ -73,4 +73,6 @@ class Album
     return "Medium"
   end
 
+
+
 end

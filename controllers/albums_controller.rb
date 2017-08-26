@@ -42,6 +42,7 @@ end
 get '/albums/:id/edit' do
   @album = Album.find( params[:id] )
   @artists = Artist.all()
+  @genres = Genre.all()
   erb( :"albums/edit" )
 end
 

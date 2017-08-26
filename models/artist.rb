@@ -1,5 +1,6 @@
 require_relative( '../db/sql_runner' )
 
+
 class Artist
 
   attr_accessor( :name, :url)
@@ -50,6 +51,13 @@ class Artist
     sql = "UPDATE artists SET (name, url) = ($1, $2) WHERE id = $3"
     values = [@name, @url, @id]
     SqlRunner.run( sql, values )
+  end
+
+  def self.albums_by_artist(id)
+    sql = "SELECT * FROM albums WHERE artist_id = $1"
+    values = [id]
+    albums = SqlRunner.run(sql,values)
+    return albums.map{ |album| Album.new( album ) }
   end
 
 end

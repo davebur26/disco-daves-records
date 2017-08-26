@@ -1,0 +1,11 @@
+<p> Genre name: <%= @genre.name %> </p>
+
+<form method="get" action="/genres/<%= @genre.id %>/edit">
+  <input type="submit" value="Edit Genre"/>
+</form>
+<form method="post" action="/genres/<%= @genre.id %>/delete">
+  <input type="submit" value="Delete Genre"/>
+</form>
+<form method="get" action="/genres/<%= @genre.id %>/albums">
+  <input type="submit" value="View Albums"/>
+</form>

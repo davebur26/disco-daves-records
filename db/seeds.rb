@@ -7,12 +7,12 @@ Album.delete_all()
 Artist.delete_all()
 Genre.delete_all()
 
-artist1 = Artist.new({"name" => "The Foals"})
-artist2 = Artist.new({"name" => "Foo Fighters"})
-artist3 = Artist.new({"name" => "Kasabian"})
-artist4 = Artist.new({"name" => "The Red Hot Chili Peppers"})
-artist5 = Artist.new({"name" => "Arctic Monkeys"})
-artist6 = Artist.new({"name" => "Stereophonics"})
+artist1 = Artist.new({"name" => "The Foals", "url" => "https://cdn2.thelineofbestfit.com/images/remote/http_cdn2.thelineofbestfit.com/media/2013/02/foals.jpg"})
+artist2 = Artist.new({"name" => "Foo Fighters", "url" => "http://louderthanwar.com/wp-content/uploads/2015/06/2015FooFighters_EM__017140115.jpg"})
+artist3 = Artist.new({"name" => "Kasabian", "url" => "https://www.google.co.uk/search?q=kasabian&tbm=isch&source=lnms&sa=X&ved=0ahUKEwi-6dnS9vTVAhVFJ1AKHVKrCTEQ_AUIDCgD&biw=1920&bih=917&dpr=1#imgrc=E7DJ6EQVbBnzVM:"})
+artist4 = Artist.new({"name" => "The Red Hot Chili Peppers", "url" => "http://mushroom.com/wp-content/uploads/2016/06/red-hot-chili-peppers.jpg"})
+artist5 = Artist.new({"name" => "Arctic Monkeys", "url" => "http://antiketombe.clear.co.id/resources/images/base/tutup-tahun-arctic-monkeys-sebar-dokume-9fe003.jpg?20141228152746"})
+artist6 = Artist.new({"name" => "Stereophonics", "url" => "https://pbs.twimg.com/media/DHwWW3DUAAALK8x.jpg"})
 
 artist1.save()
 artist2.save()
@@ -71,8 +71,9 @@ album4 = Album.new({
   "sell_price" => 9,
   "last_bought" => '24-08-17',
   "url" => "https://images-na.ssl-images-amazon.com/images/I/61jyVKWA5NL.jpg"})
-  
+
   album1.save()
   album2.save()
   album3.save()
+  binding.pry
   album4.save()

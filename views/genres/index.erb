@@ -1,0 +1,11 @@
+<h1>Genre</h1>
+
+<% for genre in @genres %>
+  <p><%= genre.name %></p>
+  <form method="get" action="/genres/<%= genre.id %>">
+    <input type="submit" value="View Genre"/>
+  </form>
+
+
+
+  <%end%>

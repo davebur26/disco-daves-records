@@ -1,1 +1,5 @@
 <p> Artist name: <%= @artist.name %> </p>
+<p><img src="<%= @artist.url %>" alt="logo"> </p>
+<form method="get" action="/artist/<%= @artist.id %>/albums">
+  <input type="submit" value="View Albums"/>
+</form>

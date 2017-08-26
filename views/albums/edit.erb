@@ -12,6 +12,13 @@
   </select>
   </label>
 
+  <select name="genre_id">
+    <% @genres.each do |genre| %>
+    <option value="<%= genre.id %>"><%= genre.name %></option>
+    <% end %>
+  </select>
+  </label>
+
 
   <label for="album-quantity">Quantity:</label>
   <input type="number" name="quantity" id="album-quantity" value="<%= @album.quantity%>"/>

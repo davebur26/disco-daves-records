@@ -45,3 +45,9 @@ post '/artists/:id' do
   Artist.new( params ).update
   redirect to '/artists'
 end
+
+# SHOW ALBUM BY ARTIST
+get '/artist/:id/albums' do
+  @albums = Artist.albums_by_artist( params[:id] )
+  erb(:"artists/albums_by_artist")
+end
