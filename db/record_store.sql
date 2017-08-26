@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS albums;
-DROP TABLE IF EXISTS artists;
-DROP TABLE IF EXISTS genres;
+DROP TABLE albums;
+DROP TABLE artists;
+DROP TABLE genres;
 
 
 CREATE TABLE artists (
@@ -20,8 +20,8 @@ CREATE TABLE albums (
   artist_id INT8 REFERENCES artists(id),
   genre_id INT8 REFERENCES genres(id),
   quantity VARCHAR(255),
-  buy_cost INT,
-  sell_price INT,
-  last_bought INT,
+  buy_cost DECIMAL(3,2),
+  sell_price DECIMAL(3,2),
+  last_bought DATE,
   url VARCHAR(255)
 );

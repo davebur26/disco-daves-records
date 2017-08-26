@@ -1,3 +1,7 @@
 <p> Album title: <%= @album.title %> </p>
-<p> Album artist_id: <%= @album.artist_id %> </p>
-<p> Album quantity: <%= @album.quantity %> </p>
+<p> Artist Name: <%= @album.artist_name %> </p>
+<p> Quantity: <%= @album.quantity %> </p>
+<p> Stock Level: <%= @album.stock_level %> </p>
+<p> Gross Cost: £<%= @album.buy_cost %> </p>
+<p> Sell Price: £<%= @album.sell_price %> </p>
+<p><a href =""><img src="<%= @album.url.to_s %>" alt="logo"> </p>
