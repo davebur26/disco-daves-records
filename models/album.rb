@@ -8,10 +8,12 @@ class Album
 
   def initialize( details )
     @id = details['id'].to_i if details['id']
-    @title = details['title']
+    @title = details['title'].capitalize
     @artist_id = details['artist_id']
     @quantity = details['quantity']
     @artist_name = Artist.find(artist_id).name
+    @stock_level = stock_level()
+
   end
 
   def save()
@@ -55,6 +57,12 @@ class Album
     sql = "UPDATE albums SET (title, artist_id, quantity) = ($1,$2,$3) WHERE id = $4"
     values = [@title, @artist_id, @quantity, @id]
     SqlRunner.run( sql, values )
+  end
+
+  def stock_level()
+    return "High" if @quantity.to_i > 10
+    return "Low" if @quantity.to_i < 5
+    return "Medium"
   end
 
 end

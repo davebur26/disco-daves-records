@@ -4,6 +4,7 @@
   <p>Album Title: <%= album.title %></p>
   <p>Artist Name:  <%= album.artist_name %></p>
   <p>Quanity: <%= album.quantity %></p>
+  <p>Stock Level: <%= album.stock_level %></p>
 
   <form method="get" action="/albums/<%= album.id %>">
     <input type="submit" value="View Album"/>
