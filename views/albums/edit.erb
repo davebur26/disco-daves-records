@@ -23,5 +23,18 @@
   <label for="album-quantity">Quantity:</label>
   <input type="number" name="quantity" id="album-quantity" value="<%= @album.quantity%>"/>
 
+  <label for="album-buy_cost">Buy Cost:</label>
+  <input type="number" name="buy_cost" id="album-buy_cost" value="<%= @album.buy_cost%>" />
+
+  <label for="album-quantity">Mark Up (%):</label>
+  <input type="number" name="mark_up" id="album-markup" value="<%= @album.mark_up%>"/>
+
+  <label for="album-url">Album Image:</label>
+  <input type="text" name="url" id="album-url" value="<%= @album.url%>"/>
+
+
+
+
+
 <input type="submit" value="Update Album">
 </form>

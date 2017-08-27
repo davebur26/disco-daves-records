@@ -41,8 +41,6 @@ album1 = Album.new({
   "quantity" => 4,
   "genre_id" => genre6.id,
   "buy_cost" => 2,
-  "sell_price" => 9,
-  "last_bought" => '01-10-14',
   "url" => "https://images-na.ssl-images-amazon.com/images/I/51ohCVOH85L.jpg"})
 album2 = Album.new({
   "title" => "total life forever",
@@ -50,8 +48,6 @@ album2 = Album.new({
   "quantity" => 5,
   "genre_id" => genre1.id,
   "buy_cost" => 4,
-  "sell_price" => 8,
-  "last_bought" => '12-03-16',
   "url" => "https://images-na.ssl-images-amazon.com/images/I/51TIBJQyGeL.jpg"})
 album3 = Album.new({
   "title" => "in your honour",
@@ -59,8 +55,6 @@ album3 = Album.new({
   "quantity" => 2,
   "genre_id" => genre2.id,
   "buy_cost" => 2,
-  "sell_price" => 9,
-  "last_bought" => '12-03-13',
   "url" => "https://images-na.ssl-images-amazon.com/images/I/61g2eNbEH8L.jpg"})
 album4 = Album.new({
   "title" => "sonic highways",
@@ -68,12 +62,9 @@ album4 = Album.new({
   "quantity" => 9,
   "genre_id" => genre3.id,
   "buy_cost" => 2,
-  "sell_price" => 9,
-  "last_bought" => '24-08-17',
   "url" => "https://images-na.ssl-images-amazon.com/images/I/61jyVKWA5NL.jpg"})
 
   album1.save()
   album2.save()
   album3.save()
-  binding.pry
   album4.save()

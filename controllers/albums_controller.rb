@@ -48,6 +48,7 @@ end
 
 # UPDATE
 post '/albums/:id' do
+  binding.pry
   Album.new( params ).update
   redirect to '/albums'
 end

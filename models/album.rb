@@ -3,21 +3,24 @@ require_relative( './artist.rb' )
 
 class Album
 
-  attr_accessor(:title, :artist_id, :quantity, :genre_id, :buy_cost, :sell_price, :last_bought, :url)
+  attr_accessor(:title, :artist_id, :quantity, :genre_id, :buy_cost, :sell_price, :last_bought, :url, :mark_up)
   attr_reader(:id, :artist_name)
 
   def initialize( details )
     @id = details['id'].to_i if details['id']
     @title = details['title'].capitalize
-    @artist_id = details['artist_id']
-    @quantity = details['quantity']
+    @artist_id = details['artist_id'].to_i
+    @quantity = details['quantity'].to_i
     @artist_name = Artist.find(artist_id).name
     @stock_level = stock_level()
     @genre_id = details['genre_id']
-    @buy_cost = details['buy_cost']
-    @sell_price = details['sell_price']
-    @last_bought = details['last_bought']
+    @buy_cost = details['buy_cost'].to_i
+    @mark_up = 200
+    @sell_price = buy_cost * (mark_up/100)
     @url = details['url']
+    @last_bought = details['last_bought']
+
+
 
   end
 
@@ -62,8 +65,8 @@ class Album
   def update()
     sql = "UPDATE albums SET
       (title,artist_id, quantity, genre_id, buy_cost, sell_price, last_bought, url)
-      = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9"
-      values = [@title, @artist_id, @quantity, @genre_id, @buy_cost, @sell_price, @last_bought, @url, @id]
+      = ($1, $2, $3, $4, $5, $6, CURRENT_DATE, $7) WHERE id = $8"
+      values = [@title, @artist_id, @quantity, @genre_id, @buy_cost, @sell_price, @url, @id]
     SqlRunner.run( sql, values )
   end
 
@@ -72,6 +75,10 @@ class Album
     return "Low" if @quantity.to_i < 5
     return "Medium"
   end
+
+
+
+
 
 
 
