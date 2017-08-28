@@ -1,21 +1,58 @@
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
 <h1>Albums</h1>
 
+<form method="get" action="/album/new" >
+  <input type="submit" value="Add New Album" class="big-button new-button"/>
+</form>
+
+
+<table class="album-table">
+    <th class="column1">Album Title</th>
+    <th class="column1"> Artist Name</th>
+    <th>Quantity</th>
+    <th>Stock Level</th>
+    <th>Last Bought</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+
+
+
+
 <% for album in @albums %>
-  <p>Album Title: <%= album.title %></p>
-  <p>Artist Name:  <%= album.artist_name %></p>
-  <p>Quanity: <%= album.quantity %></p>
-  <p>Stock Level: <%= album.stock_level %></p>
-  <p>Last Bought: <%= album.last_bought %></p>
 
-  <form method="get" action="/albums/<%= album.id %>">
-    <input type="submit" value="View Album"/>
-  </form>
+     <tr>
+        <td class="column1"><%= album.title %></td>
+        <td class="column1"><%= album.artist_name %></td>
+        <td><%= album.quantity %></td>
+        <td><%= album.stock_level %></td>
+        <td><%= album.last_bought %></td>
+        <td><form method="get" action="/albums/<%= album.id %>">
+          <input type="submit" value="" class="small-button view-button"/>
+        </form></td>
+        <td><form method="get" action="/albums/<%= album.id %>/edit">
+            <input type="submit" value="" class="small-button edit-button"/>
+         </form></td>
+         <td><form method="post" action="/albums/<%= album.id %>/delete">
+            <input type="submit" value="" class="small-button delete-button"/>
+          </form></td>
 
-  <form method="get" action="/albums/<%= album.id %>/edit">
-    <input type="submit" value="Edit Album"/>
-  </form>
 
-  <form method="post" action="/albums/<%= album.id %>/delete">
-    <input type="submit" value="Delete Album"/>
-  </form>
+
+      </tr>
+
+
+
+
+
+
   <%end%>
+</table>
+</body>

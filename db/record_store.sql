@@ -21,7 +21,7 @@ CREATE TABLE albums (
   genre_id INT8 REFERENCES genres(id),
   quantity VARCHAR(255),
   buy_cost DECIMAL(5,2),
-  sell_price DECIMAL(5,2),
+  mark_up VARCHAR(255),
   last_bought VARCHAR(255),
   url VARCHAR(255)
 );

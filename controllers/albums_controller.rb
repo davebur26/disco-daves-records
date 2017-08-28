@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/album.rb' )
 require_relative( '../models/artist.rb' )
+require_relative( '../models/accounts.rb' )
 
 # INDEX
 get '/albums' do
@@ -12,8 +13,9 @@ end
 
 # new
 get '/album/new' do
-  @albums = Album.all
-  @artists = Artist.all
+  @albums = Album.all()
+  @artists = Artist.all()
+  @genres = Genre.all()
   erb( :"albums/new" )
 end
 
@@ -48,7 +50,13 @@ end
 
 # UPDATE
 post '/albums/:id' do
-  binding.pry
   Album.new( params ).update
+  redirect to '/albums'
+end
+
+# SELL/UPDATE
+post '/albums/:id/sell' do
+  album = Album.find( params[:id] )
+  album.sell
   redirect to '/albums'
 end

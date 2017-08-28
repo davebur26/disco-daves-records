@@ -1,0 +1,28 @@
+.small-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border-style: solid;
+}
+
+ .big-button{
+  border-radius: 10px;
+  border-style: solid;
+  padding: 10px;
+}
+
+
+
+.delete-button {
+background-color: #E64444;
+}
+
+.edit-button {
+background-color: #4F58D8;
+}
+.view-button {
+background-color: #4FD85C;
+}
+.new-button {
+background-color:  #ffff4d;
+}

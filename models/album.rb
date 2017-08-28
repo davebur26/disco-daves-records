@@ -14,23 +14,21 @@ class Album
     @artist_name = Artist.find(artist_id).name
     @stock_level = stock_level()
     @genre_id = details['genre_id']
-    @buy_cost = details['buy_cost'].to_i
-    @mark_up = 200
-    @sell_price = buy_cost * (mark_up/100)
+    @buy_cost = details['buy_cost'].to_f.round(2)
+    @mark_up = details['mark_up'].to_i
+    # .new is overriding this
+    @sell_price = (buy_cost * ((@mark_up)*0.01))
     @url = details['url']
     @last_bought = details['last_bought']
-
-
-
   end
 
   def save()
     sql = "
       INSERT INTO albums
-      (title,artist_id, quantity, genre_id, buy_cost, sell_price, last_bought, url)
+      (title, artist_id, quantity, genre_id, buy_cost, mark_up, last_bought, url)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id
       "
-    values = [@title, @artist_id, @quantity, @genre_id, @buy_cost, @sell_price, @last_bought, @url]
+    values = [@title, @artist_id, @quantity, @genre_id, @buy_cost, @mark_up, @last_bought, @url]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -64,22 +62,26 @@ class Album
 
   def update()
     sql = "UPDATE albums SET
-      (title,artist_id, quantity, genre_id, buy_cost, sell_price, last_bought, url)
-      = ($1, $2, $3, $4, $5, $6, CURRENT_DATE, $7) WHERE id = $8"
-      values = [@title, @artist_id, @quantity, @genre_id, @buy_cost, @sell_price, @url, @id]
+      (title,artist_id, quantity, genre_id, buy_cost, mark_up, url)
+      = ($1, $2, $3, $4, $5, $6, $7) WHERE id = $8"
+      values = [@title, @artist_id, @quantity, @genre_id, @buy_cost, @mark_up, @url, @id]
     SqlRunner.run( sql, values )
   end
+
+  def sell()
+    sql = "UPDATE albums SET
+        (quantity, last_bought)
+        = ($1, CURRENT_DATE) WHERE id = $2"
+      values = [(@quantity - 1), @id]
+    SqlRunner.run( sql, values )
+  end
+
 
   def stock_level()
     return "High" if @quantity.to_i > 10
     return "Low" if @quantity.to_i < 5
     return "Medium"
   end
-
-
-
-
-
 
 
 end

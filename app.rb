@@ -4,6 +4,10 @@ require_relative( 'controllers/artists_controller')
 require_relative( 'controllers/albums_controller')
 require_relative( 'controllers/genres_controller')
 
-get '/' do
-  erb( :index )
+also_reload ('./models*')
+
+
+
+get '/home' do
+  erb( :home )
 end

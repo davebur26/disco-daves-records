@@ -12,8 +12,25 @@
   </select>
   </label>
 
+  <select name="genre_id">
+    <% @genres.each do |genre| %>
+    <option value="<%= genre.id %>"><%= genre.name %></option>
+    <% end %>
+  </select>
+  </label>
+
+
   <label for="album-quantity">Quantity:</label>
   <input type="number" name="quantity" id="album-quantity" />
+
+  <label for="album-buy_cost">Buy Cost:</label>
+  <input type="DECIMAL" name="buy_cost" id="album-buy_cost"  />
+
+  <label for="album-mark_up">Mark Up (%):</label>
+  <input type="number" name="mark_up" id="album-markup"/>
+
+  <label for="album-url">Album Image:</label>
+  <input type="text" name="url" id="album-url" />
 
 <input type="submit" value="Add Album">
 </form>

@@ -1,0 +1,37 @@
+
+td, th {
+  text-align: center;
+}
+
+td {
+  padding: 10px 40px 0px 0px;
+}
+
+th {
+  padding: 50px 40px 10px 0px;
+  border-bottom: 1px solid purple;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  position: relative;
+  color: white;
+}
+
+.column1 {
+  text-align: left;
+}
+
+.album-table{
+  width: 85%;
+}
+
+.genre-table {
+  width:60%;
+}
+
+.artist-table {
+  width:75%;
+}

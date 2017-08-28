@@ -1,16 +1,34 @@
 <h1>Artists</h1>
 
+<table class="artist-table">
+    <th class="column1">Artist Name</th>
+    <th>View Artist</th>
+    <th>Edit Artist</th>
+    <th>Delete Artist</th>
+
+
+
 <% for artist in @artists %>
-  <p><%= artist.name %></p>
-  <form method="get" action="/artists/<%= artist.id %>">
-    <input type="submit" value="View Artist"/>
-  </form>
-  <form method="get" action="/artists/<%= artist.id %>/edit">
-    <input type="submit" value="Edit Artist"/>
-  </form>
-  <form method="post" action="/artists/<%= artist.id %>/delete">
-    <input type="submit" value="Delete Artist"/>
-  </form>
+<tr>
+
+
+  <td class="column1"><%= artist.name %></td>
+
+  <div class="button-column">
+
+  <td><form method="get" action="/artists/<%= artist.id %>">
+    <input type="submit" value="" class="small-button view-button"/>
+  </form></td>
+
+  <td><form method="get" action="/artists/<%= artist.id %>/edit">
+    <input type="submit" value="" class="small-button edit-button"/>
+  </form></td>
+  <td><form method="post" action="/artists/<%= artist.id %>/delete">
+    <input type="submit" value="" class="small-button delete-button"/>
+  </form></td>
+</div>
+
+  </tr>
 
 
   <%end%>

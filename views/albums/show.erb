@@ -1,8 +1,55 @@
-<p> Album title: <%= @album.title %> </p>
-<p> Artist Name: <%= @album.artist_name %> </p>
-<p> Quantity: <%= @album.quantity %> </p>
+
+<img src="<%= @album.url %>" alt="logo" class="album-pic">
+
+<table>
+  <tr>
+    <th>Album Title</th>
+    <td><%= @album.title %></td>
+  </tr>
+    <th>Artist Name</th>
+    <td><%= @album.artist_name %></td>
+  <tr>
+    <th>Quantity</th>
+    <td><%= @album.quantity %></td>
+  </tr>
+  <tr>
+    <th>Stock Level</th>
+    <td><%= @album.stock_level %></td>
+
+  </tr>
+  <tr>
+    <th>Gross Cost</th>
+    <td>£<%= @album.buy_cost %></td>
+  </tr>
+  <th>Sell Price</th>
+  <th>Last Bought</th>
+  <th>Mark Up</th>
+</table>
+
+
+
 <p> Stock Level: <%= @album.stock_level %> </p>
 <p> Gross Cost: £<%= @album.buy_cost %> </p>
 <p> Sell Price: £<%= @album.sell_price %> </p>
 <p> Last Bought: <%= @album.last_bought %> </p>
-<p><img src="<%= @album.url %>" alt="logo"> </p>
+<p> Mark Up: <%= @album.mark_up %> </p>
+
+
+
+
+
+<form method="post" action="/albums/<%= @album.id%>/sell">
+<input type="submit" value="Sell Album">
+</form>
+
+<form method="post" action="/albums/<%= @album.id%>/buy">
+<input type="submit" value="Buy Album">
+</form>
+
+<form method="get" action="/albums/<%= @album.id %>/edit">
+  <input type="submit" value="Edit Album"/>
+</form>
+
+<form method="post" action="/albums/<%= @album.id %>/delete">
+  <input type="submit" value="Delete Album"/>
+</form>
