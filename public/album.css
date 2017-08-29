@@ -1,5 +1,9 @@
 .album-pic {
-  left: 10px;
-  position: absolute;
-  width: 300px
+
+  /*left: 10px;
+  position: absolute;*/
+  max-width: 314px;
+  /*heigth: 100px;*/
+  padding: 20px 1px;
+  /*position: absolute;*/
 }

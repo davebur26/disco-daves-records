@@ -1,6 +1,6 @@
 <h1>Artists</h1>
 
-<table class="artist-table">
+<table class="h-table artist-table">
     <th class="column1">Artist Name</th>
     <th>View Artist</th>
     <th>Edit Artist</th>
@@ -14,7 +14,6 @@
 
   <td class="column1"><%= artist.name %></td>
 
-  <div class="button-column">
 
   <td><form method="get" action="/artists/<%= artist.id %>">
     <input type="submit" value="" class="small-button view-button"/>
@@ -26,7 +25,6 @@
   <td><form method="post" action="/artists/<%= artist.id %>/delete">
     <input type="submit" value="" class="small-button delete-button"/>
   </form></td>
-</div>
 
   </tr>
 

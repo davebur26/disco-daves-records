@@ -3,7 +3,7 @@ require_relative( './artist.rb' )
 
 class Album
 
-  attr_accessor(:title, :artist_id, :quantity, :genre_id, :buy_cost, :sell_price, :last_bought, :url, :mark_up)
+  attr_accessor(:title, :artist_id, :quantity, :genre_id, :buy_cost, :last_bought, :url, :mark_up)
   attr_reader(:id, :artist_name)
 
   def initialize( details )
@@ -16,10 +16,12 @@ class Album
     @genre_id = details['genre_id']
     @buy_cost = details['buy_cost'].to_f.round(2)
     @mark_up = details['mark_up'].to_i
-    # .new is overriding this
-    @sell_price = (buy_cost * ((@mark_up)*0.01))
     @url = details['url']
     @last_bought = details['last_bought']
+  end
+
+  def sell_price
+    '%.2f' % (@buy_cost * ((@mark_up)*0.01))
   end
 
   def save()

@@ -56,7 +56,11 @@ end
 
 # SELL/UPDATE
 post '/albums/:id/sell' do
-  album = Album.find( params[:id] )
-  album.sell
+  @album = Album.find( params[:id] )
+  if @album.quantity > 0
+  @album.sell
   redirect to '/albums'
+else
+  erb( :"albums/no-stock")
+end
 end

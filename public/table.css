@@ -1,19 +1,28 @@
 
-td, th {
+/*.h-table td, th {
   text-align: center;
-}
+}*/
 
-td {
+.h-table td {
   padding: 10px 40px 0px 0px;
+  height: 35px;
 }
 
-th {
+.v-table td {
+ height: 35px;
+}
+.v-table tr {
+  border-bottom: 1px solid purple;
+
+}
+
+.h-table th {
   padding: 50px 40px 10px 0px;
   border-bottom: 1px solid purple;
 }
 
 
-table {
+.h-table {
   border-collapse: collapse;
   width: 100%;
   position: relative;
@@ -34,4 +43,35 @@ table {
 
 .artist-table {
   width:75%;
+}
+
+.show-table {
+  text-align: left;
+  margin: 0px 0px 0px 80px;
+  align-self: flex-end;
+  width: 400px ;
+  }
+
+.show-table th{
+  /*border-left: 1px solid purple;*/
+}
+
+/*.show-table td{
+  border: 2px solid purple;
+}
+
+.show-table tr{
+  border: 2px solid purple;
+}*/
+
+.genre-table{
+  width: 75%;
+}
+
+.genre-table td a {
+  text-decoration: none;
+}
+
+.genre-table td a:hover {
+  color: green;
 }

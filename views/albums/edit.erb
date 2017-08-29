@@ -1,51 +1,91 @@
 <h1>Update Album</h1>
 
+
+
 <form method="post" action="/albums/<%= @album.id%>">
 
-  <label for="album-title">Album Title:</label>
-  <input type="text" name="title" id="album-title" value="<%= @album.title%>"/>
+  <div class="container">
 
-  <select name="artist_id">
-    <% @artists.each do |artist| %>
-      <% if artist.id == @album.artist_id %>
-        <option value=<%= artist.id %> selected ><%= artist.name %></option>
-      <% else %>
-        <option value=<%= artist.id %> ><%= artist.name %></option>
-      <% end %>
-    <% end %>
-  </select>
-  </label>
+    <div class="col">
+      <img src="<%= @album.url %>" alt="logo" class="album-pic" id="album" width="300px" height="300px">
 
-
-  <select name="genre_id">
-    <% @genres.each do |genre| %>
-      <% if genre.id == @album.genre_id %>
-        <option value=<%= genre.id %> selected ><%= genre.name %></option>
-      <% else %>
-        <option value=<%= genre.id %> ><%= genre.name %></option>
-      <% end %>
-    <% end %>
-  </select>
-  </label>
-
-
-
-
-
+    </div>
+    <div class="col1">
+      <table class="v-table show-table" id = "table">
+        <tr>
+          <th>Album Title:</th>
+          <td>
+            <input type="text" name="title" id="album-title" value="<%= @album.title%>"/>
+          </td>
+        </tr>
+          <th>Artist Name:</th>
+          <td>
+            <select name="artist_id">
+                <% @artists.each do |artist| %>
+                  <% if artist.id == @album.artist_id %>
+                    <option value=<%= artist.id %> selected ><%= artist.name %></option>
+                  <% else %>
+                    <option value=<%= artist.id %> ><%= artist.name %></option>
+                  <% end %>
+                <% end %>
+              </select>
+              </label>
+            </td>
+        <tr>
 
 
 
-  <label for="album-quantity">Quantity:</label>
-  <input type="number" name="quantity" id="album-quantity" value="<%= @album.quantity%>"/>
+          <th>Genre:</th>
+          <td>
 
-  <label for="album-buy_cost">Buy Cost:</label>
-  <input type="DECIMAL" name="buy_cost" id="album-buy_cost" value="<%= @album.buy_cost%>" />
+              <select name="genre_id">
+                <% @genres.each do |genre| %>
+                  <% if genre.id == @album.genre_id %>
+                    <option value=<%= genre.id %> selected ><%= genre.name %></option>
+                  <% else %>
+                    <option value=<%= genre.id %> ><%= genre.name %></option>
+                  <% end %>
+                <% end %>
+              </select>
+              </label>
 
-  <label for="album-quantity">Mark Up (%):</label>
-  <input type="number" name="mark_up" id="album-markup" value="<%= @album.mark_up%>"/>
+          </td>
+        </tr>
 
-  <label for="album-url">Album Image:</label>
-  <input type="text" name="url" id="album-url" value="<%= @album.url%>"/>
+        <tr>
+          <th>Gross Cost:</th>
+          <td>
+              £ <input type="DECIMAL" name="buy_cost" id="album-buy_cost" value="<%= @album.buy_cost%>" />
+          </td>
+        </tr>
+        <tr>
+          <th>Album URL:</th>
+          <td>
+            <input type="text" name="url" id="album-url" value="<%= @album.url%>"/>
+          </td>
+        </tr>
+        <tr>
+          <th>Quantity:</th>
+          <td>
+            <input type="number" name="quantity" id="album-quantity" value="<%= @album.quantity%>"/>
+          </td>
+        </tr>
+        <tr>
+          <th>Mark Up:</th>
+          <td><input type="number" name="mark_up" id="album-markup" value="<%= @album.mark_up%>"/></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
 
 
 

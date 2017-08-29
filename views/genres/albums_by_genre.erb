@@ -1,7 +1,21 @@
-<p>Albums</p>
-<% @albums.each do |album| %>
-  <p><a href="/artists/<%= album.artist_id %>"><%= album.artist_name %></p>
-  <p><a href="/albums/<%= album.id %>"><%= album.title %></a></p>
+<h1>Albums</h1>
 
+<table class="h-table genre-table">
+    <th>Album Title</th>
+    <th>Album Name</th>
+
+<% @albums.each do |album| %>
+
+<tr>
+  <td>
+    <a href="/albums/<%= album.id %>"><%= album.title %></a>
+  </td>
+
+
+
+  <td>
+    <a href="/artists/<%= album.artist_id %>"><%= album.artist_name %>
+  </td>
+</tr>
 
   <%end%>

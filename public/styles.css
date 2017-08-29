@@ -1,6 +1,6 @@
 
 body {
-  font-family: sans-serif;
+  font-family: 'Cousine', monospace;
   background-color: black;
   color: white;
   text-align: center
@@ -67,4 +67,30 @@ nav ul li a:hover {
   width: 300px;
   position: absolute;
   right: 0px;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  justify-content:flex-start;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container .col{
+  flex: 1;
+  max-width: 300px;
+}
+.container .col1{
+  flex: 2;
+  max-width: 500px;
+}
+
+.container-buttons {
+  display: flex;
+  flex-direction: row;
+  max-width: 750px;
+  height: 100px;
+  justify-content: space-around;
+  align-items: center;
 }
