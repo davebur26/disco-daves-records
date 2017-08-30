@@ -59,6 +59,14 @@ class Album
     return albums.map{ |album| Album.new(album) }
     return result
   end
+  
+  def self.find_genre(genre_id)
+    sql = "SELECT * FROM albums WHERE genre_id = $1"
+    values = [genre_id]
+    albums = SqlRunner.run(sql,values)
+    return albums.map{ |album| Album.new(album) }
+    return result
+  end
 
   def delete()
     sql = "DELETE FROM albums WHERE id = $1"

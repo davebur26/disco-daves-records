@@ -22,6 +22,17 @@ h2 {
   word-spacing: 20px
 }
 
+h3 {
+  font-family: 'Cousine', monospace;
+  font-size: 40px;
+  font-weight: lighter;
+  text-align: center;
+  word-spacing: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+
+}
+
 h2 a{
   text-decoration: none;
 }
@@ -34,6 +45,9 @@ h2 a{
   color: green;
 }
 
+.title {
+  text-decoration: none;
+}
 
 .title-add-container {
   display:flex;

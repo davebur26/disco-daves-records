@@ -38,7 +38,7 @@ post '/artists/:id/delete' do
     artist.delete()
     redirect to ("/artists")
   else
-    erb(:"artists/no_albums")
+    erb(:no_delete)
 end
 end
 

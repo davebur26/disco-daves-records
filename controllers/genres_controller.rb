@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/artist.rb' )
 require_relative( '../models/genre.rb' )
+# require_relative( '../models/album.rb' )
 
 # INDEX
 get '/genres' do
@@ -31,8 +32,13 @@ end
 # DESTROY
 post '/genres/:id/delete' do
   genre = Genre.find(params[:id])
-  genre.delete()
-  redirect to ("/genres")
+  genre_used = Album.find_genre(genre.id)
+  if genre_used.empty?
+    genre.delete()
+    redirect to ("/genres")
+  else
+    erb(:no_delete)
+  end
 end
 
 # EDIT
