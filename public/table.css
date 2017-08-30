@@ -26,7 +26,7 @@
   border-collapse: collapse;
   width: 100%;
   position: relative;
-  color: white;
+  /*color: white;*/
 }
 
 .column1 {
@@ -67,11 +67,27 @@
 .genre-table{
   width: 75%;
 }
+.genre-album-table {
+  display: flex;
+  width: 750px;
+  text-align: left;
+  align-self: center;
+}
 
-.genre-table td a {
+.genre-album-table tbody{
+  width: 750px;
+}
+
+.genre-album-table tbody tr{
+  width: 750px;
+}
+
+
+
+table td a {
   text-decoration: none;
 }
 
-.genre-table td a:hover {
+table td a:hover {
   color: green;
 }

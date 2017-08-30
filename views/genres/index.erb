@@ -1,39 +1,32 @@
-<h1>Genre</h1>
+<div class="title-add-container">
+  <h1>Genre</h1>
+  <a href="/new_artist_genre" class="new-link">Add New Genre</a>
+</div>
 
 <table class="h-table genre-table">
-    <th class="column1">Genre Name</th>
-    <th>View Related Albums</th>
-    <th>Edit Genre</th>
-    <th>Delete Genre</th>
+  <th class="column1">Genre Name</th>
+  <th>View Related Albums</th>
+  <th>Edit Genre</th>
+  <th>Delete Genre</th>
 
-
-<% for genre in @genres %>
-<tr>
-
-  <td class="column1"><%= genre.name %></td>
-
-  <td>
-    <form method="get" action="/genres/<%= genre.id %>/albums">
+  <% for genre in @genres %>
+  <tr>
+    <td class="column1"><%= genre.name %></td>
+    <td>
+      <form method="get" action="/genres/<%= genre.id %>/albums">
       <input type="submit" value="" class="small-button view-button"/>
-    </form>
-  </td>
-  <td>
-  <form method="get" action="/genres/<%= genre.id %>/edit">
-    <input type="submit" value="" class="small-button edit-button"/>
-  </form>
-  </td>
-  <td>
-    <form method="post" action="/genres/<%= genre.id %>/delete">
-      <input type="submit" value="" class="small-button delete-button"/>
-    </form>
-  </td>
-
-
-
-
-
-
-</tr>
-
-
+      </form>
+    </td>
+    <td>
+      <form method="get" action="/genres/<%= genre.id %>/edit">
+        <input type="submit" value="" class="small-button edit-button"/>
+      </form>
+    </td>
+    <td>
+      <form method="post" action="/genres/<%= genre.id %>/delete">
+        <input type="submit" value="" class="small-button delete-button"/>
+      </form>
+    </td>
+  </tr>
   <%end%>
+</table>

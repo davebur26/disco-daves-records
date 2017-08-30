@@ -1,11 +1,12 @@
-<h1>Albums</h1>
-<p><a href="/artists/<%= @albums[0].artist_id %>"><%= @albums[0].artist_name %></p>
-  <hr />
+<h2>Albums   by   <%= @albums[0].artist_name %></h2>
 
+<p>Click the album to view</p>
 
 <% @albums.each do |album| %>
 
+<div class = "list-links">
   <p><a href="/albums/<%= album.id %>"><%= album.title %></a></p>
 
+</div>
 
   <%end%>

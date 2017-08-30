@@ -59,7 +59,7 @@ post '/albums/:id/sell' do
   @album = Album.find( params[:id] )
   if @album.quantity > 0
   @album.sell
-  redirect to '/albums'
+  erb(:"albums/sell")
 else
   erb( :"albums/no-stock")
 end

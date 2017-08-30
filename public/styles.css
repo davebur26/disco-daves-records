@@ -2,11 +2,75 @@
 body {
   font-family: 'Cousine', monospace;
   background-color: black;
-  color: white;
-  text-align: center
+  color: aqua;
+  text-align: center;
+  min-width: 950px;
+
+}
+
+h1 {
+  font-family: 'Monoton', cursive;
+  font-size: 50px;
+  font-weight: lighter;
+  text-align: left;
+}
+h2 {
+  font-family: 'Monoton', cursive;
+  font-size: 40px;
+  font-weight: lighter;
+  text-align: center;
+  word-spacing: 20px
+}
+
+h2 a{
+  text-decoration: none;
+}
+
+.list_links p a{
+  text-decoration: none;
+}
+.list_links p a:hover {
+  text-decoration: none;
+  color: green;
+}
+
+
+.title-add-container {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  height: 75px;
+  text-align: left;
 
 
 }
+
+.title-add-container h1 {
+
+  margin: 0px 150px 0px 0px;
+  flex:1;
+  max-width: 350px;
+}
+
+.title-add-container .new-link {
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: center;
+  color: aqua;
+  text-decoration: none;
+  border: 2px solid aqua;
+  padding: 5px 10px;
+  border-radius: 5px;
+  height:25px;
+  flex:1;
+  max-width: 200px;
+}
+
+.new-link:hover {
+  color: green;
+  border-color: purple;
+}
+
 
 
 .disco_ball {
@@ -65,16 +129,18 @@ nav ul li a:hover {
 
 .background {
   width: 300px;
-  position: absolute;
+  position: fixed;
   right: 0px;
+  top: 0px;
   z-index: -1;
-}
+  overflow: auto;}
 
 .container {
   display: flex;
-  justify-content:flex-start;
+  justify-content:center;
   flex-direction: row;
   align-items: center;
+
 }
 
 .container .col{
@@ -89,8 +155,7 @@ nav ul li a:hover {
 .container-buttons {
   display: flex;
   flex-direction: row;
-  max-width: 750px;
   height: 100px;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }

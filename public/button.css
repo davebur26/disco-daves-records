@@ -3,6 +3,9 @@
   height: 20px;
   border-radius: 10px;
   border: 1px solid grey;
+  font-family: 'Cousine', monospace;
+  cursor: pointer;
+
 }
 .small-button:hover {
   background-color: yellow;
@@ -10,19 +13,39 @@
   height: 30px;
   border-radius: 15px;
   border: 1px solid black;
-
-
-
 }
+
+  .small-button:active {
+    transform: translateY(4px);
+  }
+
+
+
+
 
  .big-button{
   border-radius: 10px;
   border-style: solid;
   padding: 10px;
-  width: 100px;
-  border: 1px solid grey;
+  margin: 0px 50px;
+  width: auto;
+  font-family: 'Cousine', monospace;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
 
 }
+
+.big-button:hover {
+  color: green;
+  border-color: purple;
+  background-color: black;
+}
+
+.big-button:active {
+  transform: translateY(4px);
+}
+
 
 
 
@@ -36,6 +59,7 @@
 .edit-button {
 background-color: #4F58D8;
 flex:1;
+  border: 2px solid #172c77;
 
 }
 .view-button {
@@ -47,5 +71,6 @@ background-color:  #ffff4d;
 .sell-button {
 background-color:  pink;
 flex:1;
+
 
 }

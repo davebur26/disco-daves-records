@@ -3,8 +3,6 @@ require( 'sinatra/contrib/all' )
 require_relative( '../models/artist.rb' )
 require_relative( '../models/genre.rb' )
 
-
-
 # INDEX
 get '/genres' do
   @genres = Genre.all()
@@ -12,14 +10,14 @@ get '/genres' do
 end
 
 # NEW
-get '/genre/new' do
+get '/new_artist_genre' do
   @genres = Genre.all
-  erb( :"genres/new" )
+  erb( :new_artist_genre  )
 end
 
 # CREATE
 post '/genres' do
-  genre = Artist.new(params)
+  genre = Genre.new(params)
   genre.save
   redirect to ("/genres")
 end
@@ -52,5 +50,9 @@ end
 # SHOW ALBUM BY GENRE
 get '/genres/:id/albums' do
   @albums = Genre.albums_by_genre( params[:id] )
+  if @albums.empty?
+  erb(:"genres/no_albums")
+else
   erb(:"genres/albums_by_genre")
+end
 end

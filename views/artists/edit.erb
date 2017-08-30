@@ -1,7 +1,7 @@
-<p> EDIT </p>
+<h2> Edit Artist</h2>
 <form method="post" action="/artists/<%= @artist.id %>">
-  <label for="artist_name">Artist Name:</label>
-  <input type="text" name="name" id="artist_name" value="<%= @artist.name %>"/>
-  <input type="submit" value="Edit Artist">
+  <p><label for="artist_name">Artist Name:</label>
+  <input type="text" name="name" id="artist_name" value="<%= @artist.name %>"/></p>
+  <p><input type="submit" value="Confirm Edit" class="big-button edit-button"></p>
 
 </form>

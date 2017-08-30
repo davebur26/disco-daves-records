@@ -5,15 +5,13 @@
 </head>
 
 <body>
+  <div class="title-add-container">
+    <h1>Albums</h1>
 
-<h1>Albums</h1>
+    <a href="/album/new" class="new-link">Add New Album</a>
+  </div>
 
-<form method="get" action="/album/new" >
-  <input type="submit" value="Add New Album" class="big-button new-button"/>
-</form>
-
-
-<table class="h-table album-table">
+  <table class="h-table album-table">
     <th class="column1">Album Title</th>
     <th class="column1"> Artist Name</th>
     <th>Quantity</th>
@@ -23,36 +21,29 @@
     <th>Edit</th>
     <th>Delete</th>
 
-
-
-
-<% for album in @albums %>
-
-     <tr>
+    <% for album in @albums %>
+      <tr>
         <td class="column1"><%= album.title %></td>
         <td class="column1"><%= album.artist_name %></td>
         <td><%= album.quantity %></td>
         <td><%= album.stock_level %></td>
         <td><%= album.last_bought %></td>
-        <td><form method="get" action="/albums/<%= album.id %>">
+        <td>
+          <form method="get" action="/albums/<%= album.id %>">
           <input type="submit" value="" class="small-button view-button"/>
-        </form></td>
-        <td><form method="get" action="/albums/<%= album.id %>/edit">
-            <input type="submit" value="" class="small-button edit-button"/>
-         </form></td>
-         <td><form method="post" action="/albums/<%= album.id %>/delete">
-            <input type="submit" value="" class="small-button delete-button"/>
-          </form></td>
-
-
-
+        </form>
+        </td>
+        <td>
+          <form method="get" action="/albums/<%= album.id %>/edit">
+          <input type="submit" value="" class="small-button edit-button"/>
+         </form>
+        </td>
+         <td>
+          <form method="post" action="/albums/<%= album.id %>/delete">
+          <input type="submit" value="" class="small-button delete-button"/>
+          </form>
+        </td>
       </tr>
-
-
-
-
-
-
-  <%end%>
-</table>
+    <%end%>
+  </table>
 </body>

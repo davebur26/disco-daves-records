@@ -1,36 +1,68 @@
-<h1>Add New Album</h1>
+<h2>Add New Album</h2>
 
 <form method="post" action="/albums">
+  <div class="container">
+    <div class="col">
+      <img src="https://fanart.tv/fanart/music/11ae9fbb-f3d7-4a47-936f-4c0a04d3b3b5/cdart/white-blood-cells-4defaaab45aae.png" class="album-pic" id="album" width="300px" height="300px">
+    </div>
 
-  <label for="album-title">Album Title:</label>
-  <input type="text" name="title" id="album-title" />
+    <div class="col1">
+      <table class="v-table show-table" id = "table">
+        <tr>
+          <th>Album Title:</th>
+          <td>
+            <input type="text" name="title" id="album-title" required/>
+          </td>
+        </tr>
+          <th>Artist Name:</th>
+          <td>
+            <select name="artist_id">
+              <% for artist in @artists %>
+              <option value="<%= artist.id %>"><%= artist.name %></option>
+              <% end %>
+            </select>
+            </label>
+          </td>
+        <tr>
 
-  <select name="artist_id">
-    <% for artist in @artists %>
-    <option value="<%= artist.id %>"><%= artist.name %></option>
-    <% end %>
-  </select>
-  </label>
+          <th>Genre:</th>
+          <td>
+            <select name="genre_id">
+              <% @genres.each do |genre| %>
+              <option value="<%= genre.id %>"><%= genre.name %></option>
+              <% end %>
+            </select>
+            </label>
+          </td>
+        </tr>
 
-  <select name="genre_id">
-    <% @genres.each do |genre| %>
-    <option value="<%= genre.id %>"><%= genre.name %></option>
-    <% end %>
-  </select>
-  </label>
+        <tr>
+          <th>Gross Cost:</th>
+          <td>
+            £ <input type="DECIMAL" name="buy_cost" id="album-buy_cost" required />
+          </td>
+        </tr>
+        <tr>
+          <th>Album URL:</th>
+          <td>
+            <input type="text" name="url" id="album-url" required/>
+          </td>
+        </tr>
+        <tr>
+          <th>Quantity:</th>
+          <td>
+            <input type="number" name="quantity" id="album-quantity" required/>
+          </td>
+        </tr>
+        <tr>
+          <th>Mark Up:</th>
+          <td>
+            <input type="number" name="mark_up" id="album-markup" required/></td>
+          </tr>
 
+      </table>
+    </div>
+  </div>
 
-  <label for="album-quantity">Quantity:</label>
-  <input type="number" name="quantity" id="album-quantity" />
-
-  <label for="album-buy_cost">Buy Cost:</label>
-  <input type="DECIMAL" name="buy_cost" id="album-buy_cost"  />
-
-  <label for="album-mark_up">Mark Up (%):</label>
-  <input type="number" name="mark_up" id="album-markup"/>
-
-  <label for="album-url">Album Image:</label>
-  <input type="text" name="url" id="album-url" />
-
-<input type="submit" value="Add Album">
+  <input type="submit" value="ADD" class="big-button new-button">
 </form>

@@ -1,6 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/artist.rb' )
+require_relative( '../models/album.rb' )
 
 # INDEX
 get '/artists' do
@@ -9,9 +10,11 @@ get '/artists' do
 end
 
 # NEW
-get '/artist/new' do
+get '/new_artist_genre' do
   @artists = Artist.all
-  erb( :"artists/new" )
+  @genres = Genre.all
+
+  erb( :new_artist_genre )
 end
 
 # CREATE
@@ -30,8 +33,13 @@ end
 # DESTROY
 post '/artists/:id/delete' do
   artist = Artist.find(params[:id])
-  artist.delete()
-  redirect to ("/artists")
+  artist_used = Album.find_artist(artist.id)
+  if artist_used.empty?
+    artist.delete()
+    redirect to ("/artists")
+  else
+    erb(:"artists/no_albums")
+end
 end
 
 # EDIT
@@ -49,5 +57,9 @@ end
 # SHOW ALBUM BY ARTIST
 get '/artist/:id/albums' do
   @albums = Artist.albums_by_artist( params[:id] )
+  if @albums.empty?
+  erb(:"artists/no_albums")
+else
   erb(:"artists/albums_by_artist")
+end
 end

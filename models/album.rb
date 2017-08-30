@@ -1,9 +1,10 @@
 require_relative( '../db/sql_runner' )
 require_relative( './artist.rb' )
+require_relative( './genre.rb' )
 
 class Album
 
-  attr_accessor(:title, :artist_id, :quantity, :genre_id, :buy_cost, :last_bought, :url, :mark_up)
+  attr_accessor(:title, :artist_id, :quantity, :genre_id, :buy_cost, :last_bought, :url, :mark_up, :genre_name)
   attr_reader(:id, :artist_name)
 
   def initialize( details )
@@ -11,9 +12,10 @@ class Album
     @title = details['title'].capitalize
     @artist_id = details['artist_id'].to_i
     @quantity = details['quantity'].to_i
-    @artist_name = Artist.find(artist_id).name
+    @artist_name = Artist.find(details["artist_id"]).name
+    @genre_name = Genre.find(details["genre_id"].to_i).name
     @stock_level = stock_level()
-    @genre_id = details['genre_id']
+    @genre_id = details['genre_id'].to_i
     @buy_cost = details['buy_cost'].to_f.round(2)
     @mark_up = details['mark_up'].to_i
     @url = details['url']
@@ -47,6 +49,14 @@ class Album
     values = [id]
     album = SqlRunner.run(sql,values)
     result = Album.new(album[0])
+    return result
+  end
+
+  def self.find_artist(artist_id)
+    sql = "SELECT * FROM albums WHERE artist_id = $1"
+    values = [artist_id]
+    albums = SqlRunner.run(sql,values)
+    return albums.map{ |album| Album.new(album) }
     return result
   end
 
