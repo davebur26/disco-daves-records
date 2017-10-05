@@ -8,6 +8,6 @@ require_relative( 'controllers/genres_controller')
 
 
 
-get '/home' do
+get '/' do
   erb( :home )
 end
