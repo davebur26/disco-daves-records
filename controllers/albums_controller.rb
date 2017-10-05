@@ -1,5 +1,5 @@
 require( 'sinatra' )
-require( 'sinatra/contrib/all' )
+require( 'require('sinatra/contrib/all') if development?')
 require_relative( '../models/album.rb' )
 require_relative( '../models/artist.rb' )
 
